@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 LABEL maintainer "Andrei Poenaru <docker@simd.stream>"
 
 RUN apt-get update && \
