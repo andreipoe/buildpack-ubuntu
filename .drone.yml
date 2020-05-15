@@ -26,8 +26,21 @@ steps:
       tags:
         - bionic-aarch64
         - 18.04-aarch64
-        - latest-aarch64
       dockerfile: bionic/Dockerfile
+      username: andreipoe
+      password:
+        from_secret: docker_token
+    when:
+      status: [success, failure]
+  - name: build-focal
+    image: plugins/docker
+    settings:
+      repo: andreipoe/buildpack-ubuntu
+      tags:
+        - focal-aarch64
+        - 20.04-aarch64
+        - latest-aarch64
+      dockerfile: focal/Dockerfile
       username: andreipoe
       password:
         from_secret: docker_token
@@ -62,8 +75,21 @@ steps:
       tags:
         - bionic-amd64
         - 18.04-amd64
-        - latest-amd64
       dockerfile: bionic/Dockerfile
+      username: andreipoe
+      password:
+        from_secret: docker_token
+    when:
+      status: [success, failure]
+  - name: build-focal
+    image: plugins/docker
+    settings:
+      repo: andreipoe/buildpack-ubuntu
+      tags:
+        - focal-amd64
+        - 20.04-amd64
+        - latest-amd64
+      dockerfile: focal/Dockerfile
       username: andreipoe
       password:
         from_secret: docker_token
@@ -92,6 +118,14 @@ steps:
       username: andreipoe
       password:
         from_secret: docker_token
+  - name: manifest-focal
+    image: plugins/manifest
+    settings:
+      target: andreipoe/buildpack-ubuntu
+      spec: focal/manifest-spec.yml
+      username: andreipoe
+      password:
+        from_secret: docker_token
 
 depends_on: [build-aarch64, build-amd64]
 trigger:
@@ -99,6 +133,6 @@ trigger:
 
 ---
 kind: signature
-hmac: 2ff644eb789c39e8cb8e2f39b8511edb10d8d92638a26a57c5f3673da854fc49
+hmac: ca72afa7e56362bbfcc3028b7366daf82ab18a4490b7e4970ffcc3a94dd073d0
 
 ...

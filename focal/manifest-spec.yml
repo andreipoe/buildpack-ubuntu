@@ -1,0 +1,12 @@
+image: andreipoe/buildpack-ubuntu:focal
+tags: [20.04, latest]
+
+manifests:
+  - image: andreipoe/buildpack-ubuntu:focal-aarch64
+    platform:
+      architecture: arm64
+      os: linux
+  - image: andreipoe/buildpack-ubuntu:focal-amd64
+    platform:
+      architecture: amd64
+      os: linux
