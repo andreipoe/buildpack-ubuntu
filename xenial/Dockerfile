@@ -1,5 +1,7 @@
-FROM ubuntu:bionic
+FROM ubuntu:xenial
 LABEL maintainer "Andrei Poenaru <docker@simd.stream>"
+
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
     apt-get install -y \
