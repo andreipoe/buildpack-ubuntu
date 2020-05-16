@@ -19,6 +19,7 @@ steps:
       username: andreipoe
       password:
         from_secret: docker_token
+    depends_on: [clone]
   - name: build-bionic
     image: plugins/docker
     settings:
@@ -30,6 +31,7 @@ steps:
       username: andreipoe
       password:
         from_secret: docker_token
+    depends_on: [clone]
     when:
       status: [success, failure]
   - name: build-focal
@@ -44,6 +46,7 @@ steps:
       username: andreipoe
       password:
         from_secret: docker_token
+    depends_on: [clone]
     when:
       status: [success, failure]
 
@@ -68,6 +71,7 @@ steps:
       username: andreipoe
       password:
         from_secret: docker_token
+    depends_on: [clone]
   - name: build-bionic
     image: plugins/docker
     settings:
@@ -79,6 +83,7 @@ steps:
       username: andreipoe
       password:
         from_secret: docker_token
+    depends_on: [clone]
     when:
       status: [success, failure]
   - name: build-focal
@@ -93,6 +98,7 @@ steps:
       username: andreipoe
       password:
         from_secret: docker_token
+    depends_on: [clone]
     when:
       status: [success, failure]
 
@@ -133,6 +139,6 @@ trigger:
 
 ---
 kind: signature
-hmac: ca72afa7e56362bbfcc3028b7366daf82ab18a4490b7e4970ffcc3a94dd073d0
+hmac: 604eac6e32280121b092bddbaa8efb6844cae95a8801b68d545673c21f37c08a
 
 ...

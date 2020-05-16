@@ -1,6 +1,7 @@
 # Ubuntu Buildpack
 
 [![Build Status](https://github.drone.simd.stream/api/badges/andreipoe/buildpack-ubuntu/status.svg)](https://github.drone.simd.stream/andreipoe/buildpack-ubuntu)
+[![Image Size](https://img.shields.io/docker/image-size/andreipoe/buildpack-ubuntu)](https://hub.docker.com/r/andreipoe/buildpack-ubuntu)
 
 This is an Ubuntu development container meant to be used as a base for other images.
 It comes with many common build dependencies pre-installed.
