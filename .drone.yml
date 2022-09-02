@@ -41,8 +41,22 @@ steps:
       tags:
         - focal-aarch64
         - 20.04-aarch64
-        - latest-aarch64
       dockerfile: focal/Dockerfile
+      username: andreipoe
+      password:
+        from_secret: docker_token
+    depends_on: [clone]
+    when:
+      status: [success, failure]
+  - name: build-jammy
+    image: plugins/docker
+    settings:
+      repo: andreipoe/buildpack-ubuntu
+      tags:
+        - jammy-aarch64
+        - 22.04-aarch64
+        - latest-aarch64
+      dockerfile: jammy/Dockerfile
       username: andreipoe
       password:
         from_secret: docker_token
@@ -93,8 +107,22 @@ steps:
       tags:
         - focal-amd64
         - 20.04-amd64
-        - latest-amd64
       dockerfile: focal/Dockerfile
+      username: andreipoe
+      password:
+        from_secret: docker_token
+    depends_on: [clone]
+    when:
+      status: [success, failure]
+  - name: build-jammy
+    image: plugins/docker
+    settings:
+      repo: andreipoe/buildpack-ubuntu
+      tags:
+        - jammy-amd64
+        - 22.04-amd64
+        - latest-amd64
+      dockerfile: jammy/Dockerfile
       username: andreipoe
       password:
         from_secret: docker_token
@@ -132,6 +160,14 @@ steps:
       username: andreipoe
       password:
         from_secret: docker_token
+  - name: manifest-jammy
+    image: plugins/manifest
+    settings:
+      target: andreipoe/buildpack-ubuntu
+      spec: jammy/manifest-spec.yml
+      username: andreipoe
+      password:
+        from_secret: docker_token
 
 depends_on: [build-aarch64, build-amd64]
 trigger:
@@ -139,6 +175,6 @@ trigger:
 
 ---
 kind: signature
-hmac: 604eac6e32280121b092bddbaa8efb6844cae95a8801b68d545673c21f37c08a
+hmac: 878ecf4a10199612ec5fa24c16ecd11aca3778461d10f44474be9af03386685d
 
 ...

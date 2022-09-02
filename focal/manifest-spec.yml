@@ -1,5 +1,5 @@
 image: andreipoe/buildpack-ubuntu:focal
-tags: [20.04, latest]
+tags: [20.04]
 
 manifests:
   - image: andreipoe/buildpack-ubuntu:focal-aarch64

@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:jammy
 LABEL maintainer "Andrei Poenaru <docker@simd.stream>"
 
 ARG DEBIAN_FRONTEND=noninteractive

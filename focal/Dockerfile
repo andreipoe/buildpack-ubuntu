@@ -22,6 +22,7 @@ RUN apt-get update && \
         ncurses-dev \
         pandoc \
         pkg-config \
+        stow \
         wget \
         xz-utils \
         zlib1g-dev && \

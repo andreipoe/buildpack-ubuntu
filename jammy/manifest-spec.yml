@@ -1,0 +1,12 @@
+image: andreipoe/buildpack-ubuntu:jammy
+tags: [22.04, latest]
+
+manifests:
+  - image: andreipoe/buildpack-ubuntu:jammy-aarch64
+    platform:
+      architecture: arm64
+      os: linux
+  - image: andreipoe/buildpack-ubuntu:jammy-amd64
+    platform:
+      architecture: amd64
+      os: linux

@@ -12,4 +12,5 @@ The following Ubuntu versions are supported:
 
 * [`xenial` (`16.04`)](https://github.com/andreipoe/buildpack-ubuntu/blob/master/xenial/Dockerfile)
 * [`bionic` (`18.04`)](https://github.com/andreipoe/buildpack-ubuntu/blob/master/bionic/Dockerfile)
-* [`focal` (`20.04`, `latest`)](https://github.com/andreipoe/buildpack-ubuntu/blob/master/focal/Dockerfile)
+* [`focal` (`20.04`)](https://github.com/andreipoe/buildpack-ubuntu/blob/master/focal/Dockerfile)
+* [`jammy` (`22.04`, `latest`)](https://github.com/andreipoe/buildpack-ubuntu/blob/master/jammy/Dockerfile)
