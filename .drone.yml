@@ -139,7 +139,6 @@ steps:
   - name: manifest-xenial
     image: plugins/manifest
     settings:
-      target: andreipoe/buildpack-ubuntu
       spec: xenial/manifest-spec.yml
       username: andreipoe
       password:
@@ -147,7 +146,6 @@ steps:
   - name: manifest-bionic
     image: plugins/manifest
     settings:
-      target: andreipoe/buildpack-ubuntu
       spec: bionic/manifest-spec.yml
       username: andreipoe
       password:
@@ -155,7 +153,6 @@ steps:
   - name: manifest-focal
     image: plugins/manifest
     settings:
-      target: andreipoe/buildpack-ubuntu
       spec: focal/manifest-spec.yml
       username: andreipoe
       password:
@@ -163,7 +160,6 @@ steps:
   - name: manifest-jammy
     image: plugins/manifest
     settings:
-      target: andreipoe/buildpack-ubuntu
       spec: jammy/manifest-spec.yml
       username: andreipoe
       password:
@@ -191,6 +187,6 @@ trigger:
 
 ---
 kind: signature
-hmac: 8640053877e23a07431fc4330d48ad60f2702ac140f0b821c9ab4908fd6e7f02
+hmac: ced72990b75c63bf3d85658fff140443ac127e22f4a79025e4341038f6f20aef
 
 ...
