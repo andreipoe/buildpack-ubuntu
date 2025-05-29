@@ -8,46 +8,6 @@ platform:
   os: linux
 
 steps:
-  - name: build-xenial
-    image: plugins/docker
-    settings:
-      repo: andreipoe/buildpack-ubuntu
-      tags:
-        - xenial-aarch64
-        - 16.04-aarch64
-      dockerfile: xenial/Dockerfile
-      username: andreipoe
-      password:
-        from_secret: docker_token
-    depends_on: [clone]
-  - name: build-bionic
-    image: plugins/docker
-    settings:
-      repo: andreipoe/buildpack-ubuntu
-      tags:
-        - bionic-aarch64
-        - 18.04-aarch64
-      dockerfile: bionic/Dockerfile
-      username: andreipoe
-      password:
-        from_secret: docker_token
-    depends_on: [clone]
-    when:
-      status: [success, failure]
-  - name: build-focal
-    image: plugins/docker
-    settings:
-      repo: andreipoe/buildpack-ubuntu
-      tags:
-        - focal-aarch64
-        - 20.04-aarch64
-      dockerfile: focal/Dockerfile
-      username: andreipoe
-      password:
-        from_secret: docker_token
-    depends_on: [clone]
-    when:
-      status: [success, failure]
   - name: build-jammy
     image: plugins/docker
     settings:
@@ -55,8 +15,22 @@ steps:
       tags:
         - jammy-aarch64
         - 22.04-aarch64
-        - latest-aarch64
       dockerfile: jammy/Dockerfile
+      username: andreipoe
+      password:
+        from_secret: docker_token
+    depends_on: [clone]
+    when:
+      status: [success, failure]
+  - name: build-noble
+    image: plugins/docker
+    settings:
+      repo: andreipoe/buildpack-ubuntu
+      tags:
+        - noble-aarch64
+        - 24.04-aarch64
+        - latest-aarch64
+      dockerfile: noble/Dockerfile
       username: andreipoe
       password:
         from_secret: docker_token
@@ -74,46 +48,6 @@ platform:
   os: linux
 
 steps:
-  - name: build-xenial
-    image: plugins/docker
-    settings:
-      repo: andreipoe/buildpack-ubuntu
-      tags:
-        - xenial-amd64
-        - 16.04-amd64
-      dockerfile: xenial/Dockerfile
-      username: andreipoe
-      password:
-        from_secret: docker_token
-    depends_on: [clone]
-  - name: build-bionic
-    image: plugins/docker
-    settings:
-      repo: andreipoe/buildpack-ubuntu
-      tags:
-        - bionic-amd64
-        - 18.04-amd64
-      dockerfile: bionic/Dockerfile
-      username: andreipoe
-      password:
-        from_secret: docker_token
-    depends_on: [clone]
-    when:
-      status: [success, failure]
-  - name: build-focal
-    image: plugins/docker
-    settings:
-      repo: andreipoe/buildpack-ubuntu
-      tags:
-        - focal-amd64
-        - 20.04-amd64
-      dockerfile: focal/Dockerfile
-      username: andreipoe
-      password:
-        from_secret: docker_token
-    depends_on: [clone]
-    when:
-      status: [success, failure]
   - name: build-jammy
     image: plugins/docker
     settings:
@@ -121,8 +55,22 @@ steps:
       tags:
         - jammy-amd64
         - 22.04-amd64
-        - latest-amd64
       dockerfile: jammy/Dockerfile
+      username: andreipoe
+      password:
+        from_secret: docker_token
+    depends_on: [clone]
+    when:
+      status: [success, failure]
+  - name: build-noble
+    image: plugins/docker
+    settings:
+      repo: andreipoe/buildpack-ubuntu
+      tags:
+        - noble-amd64
+        - 24.04-amd64
+        - latest-amd64
+      dockerfile: noble/Dockerfile
       username: andreipoe
       password:
         from_secret: docker_token
@@ -136,31 +84,17 @@ type: docker
 name: multiarch-manifest
 
 steps:
-  - name: manifest-xenial
-    image: plugins/manifest
-    settings:
-      spec: xenial/manifest-spec.yml
-      username: andreipoe
-      password:
-        from_secret: docker_token
-  - name: manifest-bionic
-    image: plugins/manifest
-    settings:
-      spec: bionic/manifest-spec.yml
-      username: andreipoe
-      password:
-        from_secret: docker_token
-  - name: manifest-focal
-    image: plugins/manifest
-    settings:
-      spec: focal/manifest-spec.yml
-      username: andreipoe
-      password:
-        from_secret: docker_token
   - name: manifest-jammy
     image: plugins/manifest
     settings:
       spec: jammy/manifest-spec.yml
+      username: andreipoe
+      password:
+        from_secret: docker_token
+  - name: manifest-noble
+    image: plugins/manifest
+    settings:
+      spec: noble/manifest-spec.yml
       username: andreipoe
       password:
         from_secret: docker_token
@@ -187,6 +121,6 @@ trigger:
 
 ---
 kind: signature
-hmac: ced72990b75c63bf3d85658fff140443ac127e22f4a79025e4341038f6f20aef
+hmac: ef9baf56f929ce242dd0c91b8a2b396f3fd2cf781bea303a4dd73e9c5c25f62d
 
 ...

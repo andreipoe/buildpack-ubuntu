@@ -1,5 +1,5 @@
 image: andreipoe/buildpack-ubuntu:jammy
-tags: [22.04, latest]
+tags: [22.04]
 
 manifests:
   - image: andreipoe/buildpack-ubuntu:jammy-aarch64
